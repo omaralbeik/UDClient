@@ -1,0 +1,6 @@
+framework module GraphQLicious {
+  umbrella header "GraphQLicious-umbrella.h"
+
+  export *
+  module * { export * }
+}

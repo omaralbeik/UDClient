@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.5.0)
+  - AlamofireObjectMapper (4.1.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
+  - GraphQLicious (0.8.2)
+  - JWTDecode (2.0.0)
+  - ObjectMapper (2.2.7)
+  - SwifterSwift (1.6.4)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - AlamofireObjectMapper
+  - GraphQLicious
+  - JWTDecode
+  - SwifterSwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  GraphQLicious: c8468f1dcbbdc74b33fd184db1642f5ed2b0a86a
+  JWTDecode: 178e47e5d28d3abcff778bacced8342858cd6cb5
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: f49cc117d3f74fcf332ebf206493aef0836e346d
+
+COCOAPODS: 1.2.1
