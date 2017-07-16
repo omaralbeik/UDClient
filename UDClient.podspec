@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name = "UDClient"
-  s.version = "0.1"
+  s.version = "0.1.1"
   s.summary = "Super easy to use Udacity Auth and Classroom APIs client for iOS"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.homepage = "https://github.com/omaralbeik/UDClient"
@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.dependency "GraphQLicious", "~> 0.8"
   s.dependency "JWTDecode", "~> 2.0"
   s.dependency "SwiftyJSON", "~> 3.1"
-  s.dependency "SwifterSwift", "~> 1.6"
+  s.dependency "SwifterSwift", "~> 3.0"
 end

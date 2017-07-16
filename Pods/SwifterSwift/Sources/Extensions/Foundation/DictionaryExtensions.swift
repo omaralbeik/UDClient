@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Methods
 public extension Dictionary {
 	
@@ -51,10 +50,26 @@ public extension Dictionary {
 		let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options)
 		return jsonData?.string(encoding: .utf8)
 	}
-	
     
-    
-    // MARK: - Operators
+    /// SwifterSwift: Count dictionary entries that where function returns true.
+    ///
+    /// - Parameter where: condition to evaluate each tuple entry against.
+    /// - Returns: Count of entries that matches the where clousure.
+    public func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool ) rethrows -> Int {
+        var count : Int = 0
+        try self.forEach {
+            if try condition($0) {
+                count += 1
+            }
+        }
+        return count
+    }
+
+}
+
+// MARK: - Operators
+
+public extension Dictionary {
     
     /// SwifterSwift: Merge the keys/values of two dictionaries.
     ///
@@ -88,7 +103,7 @@ public extension Dictionary {
     /// - Returns: a new dictionary with keys removed.
     public static func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
         var result = lhs
-		result.removeAll(keys: keys)
+        result.removeAll(keys: keys)
         return result
     }
     
@@ -98,7 +113,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     public static func -=(lhs: inout [Key: Value], keys: [Key]) {
-		lhs.removeAll(keys: keys)
+        lhs.removeAll(keys: keys)
     }
 
 }

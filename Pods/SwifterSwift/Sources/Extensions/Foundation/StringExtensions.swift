@@ -6,14 +6,12 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
-
-
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #else
-import UIKit
+	import UIKit
 #endif
+
 
 // MARK: - Properties
 public extension String {
@@ -133,6 +131,11 @@ public extension String {
 			return false
 		}
 		return url.scheme == "http"
+	}
+	
+	/// SwifterSwift: Check if string is a valid file URL.
+	public var isValidFileUrl: Bool {
+		return URL(string: self)?.isFileURL ?? false
 	}
 	
 	/// SwifterSwift: Check if string contains only numbers.
@@ -348,6 +351,19 @@ public extension String {
 	public mutating func camelize() {
 		self = camelCased
 	}
+
+    /// SwifterSwift: Check if string contains only unique characters.
+    public func hasUniqueCharacters() -> Bool {
+        guard self.characters.count > 0 else { return false }
+        var uniqueChars = Set<String>()
+        for char in self.characters {
+            if uniqueChars.contains(String(char)) {
+                return false
+            }
+            uniqueChars.insert(String(char))
+        }
+        return true
+    }
 	
 	/// SwifterSwift: Check if string contains one or more instance of substring.
 	///
@@ -579,16 +595,16 @@ public extension String {
 		}
 	}
 	
-    /// SwifterSwift: Verify if string matches the regex pattern.
+	/// SwifterSwift: Verify if string matches the regex pattern.
 	///
-    /// - Parameter pattern: Pattern to verify.
-    /// - Returns: true if string matches the pattern.
-    func matches(pattern: String) -> Bool {
-        return range(of: pattern,
-                     options: String.CompareOptions.regularExpression,
-                     range: nil, locale: nil) != nil
-    }
-
+	/// - Parameter pattern: Pattern to verify.
+	/// - Returns: true if string matches the pattern.
+	func matches(pattern: String) -> Bool {
+		return range(of: pattern,
+		             options: String.CompareOptions.regularExpression,
+		             range: nil, locale: nil) != nil
+	}
+	
 }
 
 
@@ -674,7 +690,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -692,7 +708,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#endif
 	
