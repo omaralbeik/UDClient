@@ -9,9 +9,9 @@
 import Foundation
 
 
-public class UDImage {
+public struct UDImage: Codable {
 	
-	public static let allFields: [UDImageField] = [
+	public static let allKeys: [keys] = [
 		.url,
 		.width,
 		.height
@@ -28,30 +28,70 @@ public class UDImage {
 	
 	/// Create a UDImage object.
 	///
-	/// - Parameter json: json dictionary
-	public init(json: [String: Any]) {
-		if let urlString = json[UDImageField.url.description] as? String {
-			self.url = URL(string: urlString)
+	/// - Parameter json: JSON object
+	public init?(json: Data) {
+		let decoder = JSONDecoder()
+		guard let image = try? decoder.decode(UDImage.self, from: json) else {
+			return nil
 		}
-		self.width = json[UDImageField.width.description] as? Int
-		self.height = json[UDImageField.height.description] as? Int
+		
+		self = image
 	}
 }
+
+
+extension UDImage {
+	
+	fileprivate enum CodingKeys: String, CodingKey {
+		case url = "url"
+		case width = "width"
+		case height = "height"
+	}
+	
+}
+
+
+public extension UDImage {
+	
+	public enum keys {
+		case url
+		case width
+		case height
+	}
+	
+}
+
+
+extension UDImage.keys: CustomStringConvertible {
+	
+	public var description: String {
+		switch self {
+		case .url:
+			return UDImage.CodingKeys.url.stringValue
+		case .width:
+			return UDImage.CodingKeys.width.stringValue
+		case .height:
+			return UDImage.CodingKeys.height.stringValue
+		}
+	}
+}
+
+
 
 
 // MARK: - Query
 public extension UDImage {
 	
-		public class func generateQuery(fields: [UDImageField]) -> String {
-			guard fields.count > 0 else {
-				return ""
-			}
-			
-			let stringFields: [String] = fields.map { $0.description }
-			
-			let request = Request(name: UDNanodegreeField.heroImage(fields: []).description, fields: stringFields)
-			return request.asGraphQLString
+	public static func generateQuery(keys: [keys]) -> String {
+		guard keys.count > 0 else {
+			return ""
 		}
+		
+		let stringKeys: [String] = keys.map { $0.description }
+		
+		let request = Request(name: UDNanodegree.keys.heroImage(keys: []).description, fields: stringKeys)
+		return request.asGraphQLString
+	}
 	
 }
 

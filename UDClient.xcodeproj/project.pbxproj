@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		072072A11F6D14FA00439C5F /* UDAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072072A01F6D14F400439C5F /* UDAuthToken.swift */; };
-		072072A21F6D151300439C5F /* UDNanodegreeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F71F1F6C705800E9782B /* UDNanodegreeField.swift */; };
-		072072A31F6D151300439C5F /* UDUserField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F7211F6C705800E9782B /* UDUserField.swift */; };
-		072072A41F6D151300439C5F /* UDImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F71D1F6C705800E9782B /* UDImageField.swift */; };
 		072072A51F6D151800439C5F /* UDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F71C1F6C705800E9782B /* UDImage.swift */; };
 		072072A61F6D151800439C5F /* UDNanodegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F71E1F6C705800E9782B /* UDNanodegree.swift */; };
 		072072A71F6D151800439C5F /* UDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796F7201F6C705800E9782B /* UDUser.swift */; };
@@ -53,11 +50,8 @@
 		0796F7191F6C705800E9782B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0796F71A1F6C705800E9782B /* UDClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDClient.swift; sourceTree = "<group>"; };
 		0796F71C1F6C705800E9782B /* UDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDImage.swift; sourceTree = "<group>"; };
-		0796F71D1F6C705800E9782B /* UDImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDImageField.swift; sourceTree = "<group>"; };
 		0796F71E1F6C705800E9782B /* UDNanodegree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDNanodegree.swift; sourceTree = "<group>"; };
-		0796F71F1F6C705800E9782B /* UDNanodegreeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDNanodegreeField.swift; sourceTree = "<group>"; };
 		0796F7201F6C705800E9782B /* UDUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDUser.swift; sourceTree = "<group>"; };
-		0796F7211F6C705800E9782B /* UDUserField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDUserField.swift; sourceTree = "<group>"; };
 		07D48ACD1F6D30E5000C6C2E /* UDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDError.swift; sourceTree = "<group>"; };
 		3BB16ED614575179806F72CA /* Pods-UDClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UDClient/Pods-UDClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4A669A21244DBCEF96092E0B /* Pods_UDClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +163,6 @@
 		0796F71B1F6C705800E9782B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0796F7231F6C710D00E9782B /* Fields */,
 				072072A01F6D14F400439C5F /* UDAuthToken.swift */,
 				0796F71C1F6C705800E9782B /* UDImage.swift */,
 				0796F71E1F6C705800E9782B /* UDNanodegree.swift */,
@@ -177,16 +170,6 @@
 				07D48ACD1F6D30E5000C6C2E /* UDError.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0796F7231F6C710D00E9782B /* Fields */ = {
-			isa = PBXGroup;
-			children = (
-				0796F71F1F6C705800E9782B /* UDNanodegreeField.swift */,
-				0796F7211F6C705800E9782B /* UDUserField.swift */,
-				0796F71D1F6C705800E9782B /* UDImageField.swift */,
-			);
-			path = Fields;
 			sourceTree = "<group>";
 		};
 		CA06BF048E16BD6114AF00E5 /* Frameworks */ = {
@@ -326,8 +309,6 @@
 			files = (
 				072072A81F6D152100439C5F /* Extensions.swift in Sources */,
 				076B0A411F6D7E62003AF90B /* String.swift in Sources */,
-				072072A41F6D151300439C5F /* UDImageField.swift in Sources */,
-				072072A31F6D151300439C5F /* UDUserField.swift in Sources */,
 				072072A11F6D14FA00439C5F /* UDAuthToken.swift in Sources */,
 				076B0A431F6D7E62003AF90B /* Field.swift in Sources */,
 				0796F7221F6C705800E9782B /* UDClient.swift in Sources */,
@@ -337,7 +318,6 @@
 				072072A51F6D151800439C5F /* UDImage.swift in Sources */,
 				07D48ACE1F6D30E5000C6C2E /* UDError.swift in Sources */,
 				076B0A421F6D7E62003AF90B /* ArgumentValue.swift in Sources */,
-				072072A21F6D151300439C5F /* UDNanodegreeField.swift in Sources */,
 				076B0A3F1F6D7E62003AF90B /* Fragment.swift in Sources */,
 				076B0A471F6D7E62003AF90B /* Mutation.swift in Sources */,
 				076B0A4A1F6D7E62003AF90B /* Query.swift in Sources */,

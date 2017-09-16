@@ -1,6 +1,6 @@
 {
   "name": "UDClient",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "summary": "Super easy to use Udacity Auth and Classroom APIs client for iOS",
   "license": {
     "type": "MIT",

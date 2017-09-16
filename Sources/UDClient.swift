@@ -51,8 +51,8 @@ public class UDClient {
 		}
 	}
 	
-	public func fetchUserInfo(token: UDAuthToken, fields: [UDUserField], _ completion: @escaping (_ user: UDUser?, _ error: UDError?) -> Void) {
-		let body = UDUser.generateQuery(fields: fields)
+	public func fetchUserInfo(token: UDAuthToken, keys: [UDUser.keys], _ completion: @escaping (_ user: UDUser?, _ error: UDError?) -> Void) {
+		let body = UDUser.generateQuery(keys: keys)
 		
 		guard let request = createRequest(url: classroomUrl, headers: authorizedJsonHeaders(token: token.token), stringBody: body) else {
 			completion(nil, .invalidRequest)
@@ -73,12 +73,18 @@ public class UDClient {
 					return
 				}
 				
-				guard let userJson = dataDict["user"] as? [String: Any] else {
+				guard let userDict = dataDict["user"] as? [String: Any] else {
 					completion(nil, .noData)
 					return
 				}
 				
-				completion(UDUser(json: userJson), nil)
+				guard let userJson = try? JSONSerialization.data(withJSONObject: userDict, options: .prettyPrinted) else {
+					completion(nil, .noData)
+					return
+				}
+				
+				let user = UDUser(json: userJson)
+				completion(user, nil)
 				
 			case .failure(let error):
 				completion(nil, .server(error: error))
