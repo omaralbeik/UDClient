@@ -6,12 +6,25 @@
 //  Copyright © 2017 Udacity. All rights reserved.
 //
 
-import ObjectMapper
-import GraphQLicious
-import SwifterSwift
+import Foundation
 
 
-public class UDUser: Mappable {
+public class UDUser {
+	
+	public static let allFields: [UDUserField] = [
+		.id,
+		.firstName,
+		.lastName,
+		.nickName,
+		.imageUrl,
+		.email,
+		.subscribedNanodegreesCount,
+		.graduatedNanodegreesCount,
+		.subscribedCoursesCount,
+		.graduatedCoursesCount,
+		.registrationTime,
+		.nanodegrees(fields: UDNanodegree.allFields)
+	]
 	
 	/// Id of the user
 	var id: String?
@@ -49,53 +62,65 @@ public class UDUser: Mappable {
 	/// User Nanodegrees
 	var nanodegrees: [UDNanodegree]?
 	
-	
-	public func mapping(map: Map) {
-		id <- map[UDUserField.id.mapperField]
-		firstName <- map[UDUserField.firstName.mapperField]
-		lastName <- map[UDUserField.lastName.mapperField]
-		nickname <- map[UDUserField.nickName.mapperField]
-		imageUrl <- (map[UDUserField.imageUrl.mapperField], URLTransform())
-		email <- map[UDUserField.email.mapperField]
-		subscribedNanodegreesCount <- map[UDUserField.subscribedNanodegreesCount.mapperField]
-		graduatedNanodegreesCount <- map[UDUserField.graduatedNanodegreesCount.mapperField]
-		subscribedCoursesCount <- map[UDUserField.subscribedCoursesCount.mapperField]
-		graduatedCoursesCount <- map[UDUserField.graduatedCoursesCount.mapperField]
-		registrationTime <- (map[UDUserField.registrationTime.mapperField], ISO8601ExtendedDateTransform())
-		nanodegrees <- map[UDUserField.nanodegrees(fields: []).mapperField]
+	/// Create a UDUser object.
+	///
+	/// - Parameter json: json dictionary
+	public init(json: [String: Any]) {
+		self.id =	json[UDUserField.id.description] as? String
+		self.firstName = json[UDUserField.firstName.description] as? String
+		self.lastName = json[UDUserField.lastName.description] as? String
+		self.nickname = json[UDUserField.nickName.description] as? String
+		
+		if let imageUrlString = json[UDUserField.imageUrl.description] as? String {
+			self.imageUrl = URL(string: imageUrlString)
+		}
+		
+		self.email = json[UDUserField.email.description] as? String
+		self.subscribedNanodegreesCount = json[UDUserField.subscribedNanodegreesCount.description] as? Int
+		self.graduatedNanodegreesCount = json[UDUserField.graduatedNanodegreesCount.description] as? Int
+		self.subscribedCoursesCount = json[UDUserField.subscribedCoursesCount.description] as? Int
+		self.graduatedCoursesCount = json[UDUserField.graduatedCoursesCount.description] as? Int
+		
+		if let registrationTimeString = json[UDUserField.registrationTime.description] as? String {
+			self.registrationTime = Date(ISO8601string: registrationTimeString)
+		}
+		
+		if let nanodegreesJson = json[UDUserField.nanodegrees(fields: []).description] as? [[String: Any]] {
+			self.nanodegrees = nanodegreesJson.map({ UDNanodegree(json: $0) })
+		}		
 	}
-	
-	required public init?(map: Map) { }
 	
 }
 
 
-internal extension UDUser {
+// MARK: - Query
+public extension UDUser {
 	
-	class func generateQuery(fields: [UDUserField]) -> String {
-		guard fields.count > 0 else {
-			return ""
-		}
-		
-		var fieldsStrings: [String] = []
-		
-		fields.forEach { field in
-			if case UDUserField.nanodegrees(let ndFields) = field {
-				fieldsStrings.append(UDNanodegree.generateQuery(fields: ndFields))
-			} else {
-				fieldsStrings.append(field.description)
+		class func generateQuery(fields: [UDUserField]) -> String {
+			guard fields.count > 0 else {
+				return ""
 			}
+	
+			var fieldsStrings: [String] = []
+	
+			fields.forEach { field in
+				if case UDUserField.nanodegrees(let ndFields) = field {
+					fieldsStrings.append(UDNanodegree.generateQuery(fields: ndFields))
+				} else {
+					fieldsStrings.append(field.description)
+				}
+			}
+	
+			let request = Request(name: "user", fields: fieldsStrings)
+			let query = "{\"query\":\"\(Query(request: request).create())\"}"
+			print(query)
+			return query
 		}
-		
-		let request = Request(name: "user", fields: fieldsStrings)
-		let query = "{\"query\":\"\(Query(request: request).create())\"}"
-		print(query)
-		return query
-	}
 	
 }
 
 
+// MARK: - Equatable
 extension UDUser: Equatable {
 	
 	public static func ==(lhs: UDUser, rhs: UDUser) -> Bool {
@@ -105,73 +130,40 @@ extension UDUser: Equatable {
 }
 
 
+// MARK: - CustomStringConvertible
 extension UDUser: CustomStringConvertible {
 	
 	public var description: String {
-		return toJSONString(prettyPrint: true) ?? firstName ?? "-"
+		return firstName ?? "---"
 	}
 	
 }
 
 
+// MARK: - CustomDebugStringConvertible
 extension UDUser: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
-
-		var string = ""
-
-		if let id = self.id {
-			string += "Id: \(id)\n"
-		}
-		
-		if let firstName = self.firstName {
-			string += "First name: \(firstName)\n"
-		}
-		
-		if let lastName = self.lastName {
-			string += "Last name: \(lastName)\n"
-		}
-		
-		if let nickname = self.nickname {
-			string += "Nickname: \(nickname)\n"
-		}
-		
-		if let email = self.email {
-			string += "Email: \(email)\n"
-		}
-		
-		if let imageUrl = self.imageUrl {
-			string += "Image URL: \(imageUrl)\n"
-		}
-		
-		if let registrationTime = self.registrationTime {
-			string += "Registration Time: \(registrationTime.dateTimeString())\n"
-		}
-		
-
-		if let subscribedNanodegreesCount = self.subscribedNanodegreesCount {
-			string += "Subscribed Nanodegrees count: \(subscribedNanodegreesCount)\n"
-		}
-		
-		if let graduatedNanodegreesCount = self.graduatedNanodegreesCount {
-			string += "Graduated nanodegrees count: \(graduatedNanodegreesCount)\n"
-		}
-		
-		if let subscribedCoursesCount = self.subscribedCoursesCount {
-			string += "Subscribed Courses count: \(subscribedCoursesCount)\n"
-		}
-		
-		if let graduatedCoursesCount = self.graduatedCoursesCount {
-			string += "Graduated Courses count: \(graduatedCoursesCount)\n"
-		}
+		var string = """
+		Id: \(id ?? "--")
+		First name: \(firstName ?? "--")
+		Last name: \(lastName ?? "--")
+		Nickname: \(nickname ?? "--")
+		Email: \(email ?? "--")
+		Image URL: \(imageUrl?.absoluteString ?? "--")
+		Registration Time: \(registrationTime?.description ?? "--")
+		Subscribed Nanodegrees count: \(subscribedNanodegreesCount?.description ?? "--")
+		Graduated nanodegrees count: \(graduatedNanodegreesCount?.description ?? "--")
+		Subscribed Courses count: \(subscribedCoursesCount?.description ?? "--")
+		Graduated Courses count: \(graduatedCoursesCount?.description ?? "--")
+		"""
 		
 		for nanodegree in nanodegrees ?? [] {
-			string += "-------------------\n"
+			string += "\n-------------------\n"
 			string += nanodegree.debugDescription
 		}
 		
 		return string
-		
 	}
 	
 }

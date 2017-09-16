@@ -1,0 +1,6 @@
+framework module UDClient {
+  umbrella header "UDClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

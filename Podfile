@@ -2,9 +2,8 @@ platform :ios, '9.0'
 
 target 'UDClient' do
   use_frameworks!
-  pod 'JWTDecode'
-  pod 'AlamofireObjectMapper'
-  pod 'SwiftyJSON'
-  pod 'GraphQLicious'
-  pod 'SwifterSwift'
+
+  # Pods for UDClient
+  pod 'Alamofire', '~> 4.5'
+
 end

@@ -2,10 +2,17 @@
 
 Super easy to use Udacity Auth and Classroom APIs client for iOS
 
-[![Swift](https://img.shields.io/badge/Swift-3.2-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-8.3-blue.svg)](https://developer.apple.com/xcode)
+[![Swift](https://img.shields.io/badge/Swift-4-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-9-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
+---
+
+### ⚠️ To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v0.1.1`**](https://github.com/omaralbeik/UDClient/releases/tag/0.1.1).
+
+### ⚠️ To use with **Swift 4 / Xcode 9.x** please ensure you are using  [**`v0.2.0`**](https://github.com/omaralbeik/UDClient/releases/tag/0.2.0)
+
+---
 
 # Usage
 
@@ -14,22 +21,21 @@ Get User's basic info, Courses, Nanodegrees, and much more with few lines of cod
 
 ## Get Access Token
 
-Fetch a story, comment, job, Ask HN, poll or poll part for a given id:
 ```swift
-UDClient.shared.requestToken(email: email, password: password) { error, jwtoken in
+UDClient.shared.requestToken(email: email, password: password) { error, token in
   if error != nil {
     // handle error
     return
   }
 
   // get token
-  let token = jwtoken?.string
+  let token = token?.token
 
   // get token expiry date
-  let expiryDate = jwtoken?.expiresAt
+  let expiryDate = token?.expiryDate
 
-  // check if token is expirted
-  let expired = jwtoken?.expired
+  // check if token is expired
+  let isExpired = token?.isExpired
 
   // store the token.
 }
@@ -37,6 +43,9 @@ UDClient.shared.requestToken(email: email, password: password) { error, jwtoken 
 
 ## Get User Info
 ```swift
+
+// all user info
+let fields: UDUser.allFields
 
 // basic user info
 let fields: [UDUserField] = [.id, .firstName, .lastName, .email]
@@ -78,21 +87,18 @@ UDClient.shared.fetchUserInfo(token: token, fields: fields) { error, user in
 ## Services:
   - [UDClient.swift](https://github.com/omaralbeik/UDClient/blob/master/Sources/Services/UDClient.swift)
 
-## Common:
-- [ISO8601ExtendedDateTransform.swift](https://github.com/omaralbeik/UDClient/blob/master/Sources/Common/ISO8601ExtendedDateTransform.swift)
-
 
 ## Udacity Classroom API:
  - This project relies on [Udacity Classroom API](https://classroom-content.udacity.com/api/v1/graphql)
 
 ## Dependencies:
-  - UDClient uses [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) for networking and mapping JSON to native objects.
+  - UDClient uses [Alamofire](https://github.com/Alamofire/Alamofire) for networking.
 
 
 # Requirements:
 - iOS 9.0+
-- Xcode 8.1+
-- Swift 3.0+
+- Xcode 9+
+- Swift 4.0+
 
 
 # Installation

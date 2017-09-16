@@ -2,8 +2,8 @@
 //  UDClient.h
 //  UDClient
 //
-//  Created by Omar Albeik on 7/15/17.
-//  Copyright © 2017 Udacity. All rights reserved.
+//  Created by Omar Albeik on 9/15/17.
+//  Copyright © 2017 Omar Albeik. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
