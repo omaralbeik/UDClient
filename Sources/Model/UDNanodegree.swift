@@ -9,20 +9,7 @@
 import Foundation
 
 
-public class UDNanodegree {
-	
-	public static let allFields: [UDNanodegreeField] = [
-		.key,
-		.title,
-		.summary,
-		.isTermBased,
-		.providesCareerServices,
-		.dateUpdated,
-		.isGraduated,
-		.dateUpdated,
-		.isReadyForGraduation,
-		.heroImage(fields: UDImage.allFields)
-	]
+public struct UDNanodegree: Codable {
 	
 	/// Key of the Nanodegree
 	var key: String?
@@ -56,51 +43,134 @@ public class UDNanodegree {
 	
 	/// Create a UDNanodegree object.
 	///
-	/// - Parameter json: json dictionary
-	public init(json: [String: Any]) {
-		self.key =	json[UDNanodegreeField.key.description] as? String
-		self.title =	json[UDNanodegreeField.title.description] as? String
-		self.summary =	json[UDNanodegreeField.summary.description] as? String
-		self.isTermBased =	json[UDNanodegreeField.isTermBased.description] as? Bool
-		self.providesCareerServices =	json[UDNanodegreeField.providesCareerServices.description] as? Bool
-		
-		if let dateUpdatedString = json[UDNanodegreeField.dateUpdated.description] as? String {
-			self.dateUpdated = Date(ISO8601string: dateUpdatedString)
+	/// - Parameter json: JSON object
+	public init?(json: Data) {
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8061)
+		guard let nanodegree = try? decoder.decode(UDNanodegree.self, from: json) else {
+			return nil
 		}
 		
-		self.isGraduated =	json[UDNanodegreeField.isGraduated.description] as? Bool
-		
-		if let dateGraduatedString = json[UDNanodegreeField.dateGraduated.description] as? String {
-			self.dateGraduated = Date(ISO8601string: dateGraduatedString)
-		}
-		
-		self.isReadyForGraduation =	json[UDNanodegreeField.isReadyForGraduation.description] as? Bool
+		self = nanodegree
 	}
 	
+	
+	public init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		
+		key = try? values.decode(String.self, forKey: .key)
+		title = try? values.decode(String.self, forKey: .title)
+		summary = try? values.decode(String.self, forKey: .summary)
+		isTermBased = try? values.decode(Bool.self, forKey: .isTermBased)
+		providesCareerServices = try? values.decode(Bool.self, forKey: .providesCareerServices)
+		dateUpdated = try? values.decode(Date.self, forKey: .dateUpdated)
+		isGraduated = try? values.decode(Bool.self, forKey: .isGraduated)
+		dateGraduated = try? values.decode(Date.self, forKey: .dateGraduated)
+		isReadyForGraduation = try? values.decode(Bool.self, forKey: .isReadyForGraduation)
+		heroImage = try? values.decode(UDImage.self, forKey: .heroImage)
+	}
+	
+}
+
+
+// MARK: - Fields
+extension UDNanodegree {
+	
+	public enum fields {
+		case key
+		case title
+		case summary
+		case isTermBased
+		case providesCareerServices
+		case dateUpdated
+		case isGraduated
+		case dateGraduated
+		case isReadyForGraduation
+		case heroImage(fields: [UDImage.fields])
+	}
+	
+	public static var allFields: [UDNanodegree.fields] {
+		return [
+			.key,
+			.title,
+			.summary,
+			.isTermBased,
+			.providesCareerServices,
+			.dateUpdated,
+			.isGraduated,
+			.dateUpdated,
+			.isReadyForGraduation,
+			.heroImage(fields: UDImage.allFields)
+		]
+	}
+
+	fileprivate enum CodingKeys: String, CodingKey {
+		case key = "key"
+		case title = "title"
+		case summary = "summary"
+		case isTermBased = "is_term_based"
+		case providesCareerServices = "provides_career_services"
+		case dateUpdated = "updated_at"
+		case isGraduated = "is_graduated"
+		case dateGraduated = "graduation_date"
+		case isReadyForGraduation = "is_ready_for_graduation"
+		case heroImage = "hero_image"
+	}
+	
+}
+
+
+// MARK: - Fields: CustomStringConvertible
+extension UDNanodegree.fields: CustomStringConvertible {
+	
+	public var description: String {
+		switch self {
+		case .key:
+			return UDNanodegree.CodingKeys.key.stringValue
+		case .title:
+			return UDNanodegree.CodingKeys.title.stringValue
+		case .summary:
+			return UDNanodegree.CodingKeys.summary.stringValue
+		case .isTermBased:
+			return UDNanodegree.CodingKeys.isTermBased.stringValue
+		case .providesCareerServices:
+			return UDNanodegree.CodingKeys.providesCareerServices.stringValue
+		case .dateUpdated:
+			return UDNanodegree.CodingKeys.dateUpdated.stringValue
+		case .isGraduated:
+			return UDNanodegree.CodingKeys.isGraduated.stringValue
+		case .dateGraduated:
+			return UDNanodegree.CodingKeys.dateGraduated.stringValue
+		case .isReadyForGraduation:
+			return UDNanodegree.CodingKeys.isReadyForGraduation.stringValue
+		case .heroImage:
+			return UDNanodegree.CodingKeys.heroImage.stringValue
+		}
+	}
 }
 
 
 // MARK: - Query
 public extension UDNanodegree {
 	
-		public class func generateQuery(fields: [UDNanodegreeField]) -> String {
-			guard fields.count > 0 else {
-				return ""
-			}
-	
-			var fieldsStrings: [String] = []
-	
-			fields.forEach { field in
-				if case UDNanodegreeField.heroImage(let imageFields) = field {
-					fieldsStrings.append(UDImage.generateQuery(fields: imageFields))
-				} else {
-					fieldsStrings.append(field.description)
-				}
-			}
-	
-			let request = Request(name: UDUserField.nanodegrees(fields: []).description, fields: fieldsStrings)
-			return request.asGraphQLString
+	public static func generateQuery(fields: [UDNanodegree.fields]) -> String {
+		guard fields.count > 0 else {
+			return ""
 		}
+		
+		var fieldsStrings: [String] = []
+		
+		fields.forEach { field in
+			if case .heroImage(let fields) = field {
+				fieldsStrings.append(UDImage.generateQuery(fields: fields))
+			} else {
+				fieldsStrings.append(field.description)
+			}
+		}
+		
+		let request = Request(name: UDUser.fields.nanodegrees(fields: []).description, fields: fieldsStrings)
+		return request.asGraphQLString
+	}
 	
 }
 
@@ -119,7 +189,7 @@ extension UDNanodegree: Equatable {
 extension UDNanodegree: CustomStringConvertible {
 	
 	public var description: String {
-		return title ?? "---"
+		return title ?? "--"
 	}
 	
 }
@@ -130,6 +200,7 @@ extension UDNanodegree: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		var string = """
+		
 		Key: \(key ?? "--")
 		Title: \(title ?? "--")
 		Summary: \(summary ?? "--")
@@ -139,19 +210,22 @@ extension UDNanodegree: CustomDebugStringConvertible {
 		Is graduated: \(isGraduated?.description ?? "--")
 		Date graduated: \(dateGraduated?.description ?? "--")
 		Is ready for graduation: \(isReadyForGraduation?.description ?? "--")
+		
 		"""
 		
 		if let image = self.heroImage {
 			string += """
+			
 			Hero Image:
 			"Url: \(image.url?.absoluteString ?? "--")
 			"Width: \(image.width?.description ?? "--")
 			"Height: \(image.height?.description ?? "--")
+			
 			"""
 		} else {
 			string += """
 			
-			Hero Image: ---
+			Hero Image: ----
 			
 			"""
 		}

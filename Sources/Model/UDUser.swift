@@ -9,22 +9,7 @@
 import Foundation
 
 
-public class UDUser {
-	
-	public static let allFields: [UDUserField] = [
-		.id,
-		.firstName,
-		.lastName,
-		.nickName,
-		.imageUrl,
-		.email,
-		.subscribedNanodegreesCount,
-		.graduatedNanodegreesCount,
-		.subscribedCoursesCount,
-		.graduatedCoursesCount,
-		.registrationTime,
-		.nanodegrees(fields: UDNanodegree.allFields)
-	]
+public struct UDUser: Codable {
 	
 	/// Id of the user
 	var id: String?
@@ -36,7 +21,7 @@ public class UDUser {
 	var lastName: String?
 	
 	/// Nickname
-	var nickname: String?
+	var nickName: String?
 	
 	/// A url for the image of the user
 	var imageUrl: URL?
@@ -62,60 +47,150 @@ public class UDUser {
 	/// User Nanodegrees
 	var nanodegrees: [UDNanodegree]?
 	
-	/// Create a UDUser object.
+	
+	/// Create a UDNanodegree object.
 	///
-	/// - Parameter json: json dictionary
-	public init(json: [String: Any]) {
-		self.id =	json[UDUserField.id.description] as? String
-		self.firstName = json[UDUserField.firstName.description] as? String
-		self.lastName = json[UDUserField.lastName.description] as? String
-		self.nickname = json[UDUserField.nickName.description] as? String
-		
-		if let imageUrlString = json[UDUserField.imageUrl.description] as? String {
-			self.imageUrl = URL(string: imageUrlString)
+	/// - Parameter json: JSON object
+	public init?(json: Data) {
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8061)
+		guard let user = try? decoder.decode(UDUser.self, from: json) else {
+			return nil
 		}
 		
-		self.email = json[UDUserField.email.description] as? String
-		self.subscribedNanodegreesCount = json[UDUserField.subscribedNanodegreesCount.description] as? Int
-		self.graduatedNanodegreesCount = json[UDUserField.graduatedNanodegreesCount.description] as? Int
-		self.subscribedCoursesCount = json[UDUserField.subscribedCoursesCount.description] as? Int
-		self.graduatedCoursesCount = json[UDUserField.graduatedCoursesCount.description] as? Int
-		
-		if let registrationTimeString = json[UDUserField.registrationTime.description] as? String {
-			self.registrationTime = Date(ISO8601string: registrationTimeString)
-		}
-		
-		if let nanodegreesJson = json[UDUserField.nanodegrees(fields: []).description] as? [[String: Any]] {
-			self.nanodegrees = nanodegreesJson.map({ UDNanodegree(json: $0) })
-		}		
+		self = user
 	}
 	
+	public init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		
+		id = try? values.decode(String.self, forKey: .id)
+		firstName = try? values.decode(String.self, forKey: .firstName)
+		lastName = try? values.decode(String.self, forKey: .lastName)
+		nickName = try? values.decode(String.self, forKey: .nickName)
+		imageUrl = try? values.decode(URL.self, forKey: .imageUrl)
+		email = try? values.decode(String.self, forKey: .email)
+		subscribedNanodegreesCount = try? values.decode(Int.self, forKey: .subscribedNanodegreesCount)
+		graduatedNanodegreesCount = try? values.decode(Int.self, forKey: .graduatedNanodegreesCount)
+		subscribedCoursesCount = try? values.decode(Int.self, forKey: .subscribedCoursesCount)
+		graduatedCoursesCount = try? values.decode(Int.self, forKey: .graduatedCoursesCount)
+		registrationTime = try? values.decode(Date.self, forKey: .registrationTime)
+		nanodegrees = try? values.decode([UDNanodegree].self, forKey: .nanodegrees)
+	}
+	
+}
+
+
+// MARK: - Fields
+extension UDUser {
+	
+	public enum fields {
+		case id
+		case firstName
+		case lastName
+		case nickName
+		case imageUrl
+		case email
+		case subscribedNanodegreesCount
+		case graduatedNanodegreesCount
+		case subscribedCoursesCount
+		case graduatedCoursesCount
+		case registrationTime
+		case nanodegrees(fields: [UDNanodegree.fields])
+	}
+	
+	public static var allFields: [UDUser.fields] {
+		return [
+			.id,
+			.firstName,
+			.lastName,
+			.nickName,
+			.imageUrl,
+			.email,
+			.subscribedNanodegreesCount,
+			.graduatedNanodegreesCount,
+			.subscribedCoursesCount,
+			.graduatedCoursesCount,
+			.registrationTime,
+			.nanodegrees(fields: UDNanodegree.allFields)
+		]
+	}
+	
+	fileprivate enum CodingKeys: String, CodingKey {
+		case id = "id"
+		case firstName = "first_name"
+		case lastName = "last_name"
+		case nickName = "nickname"
+		case imageUrl = "image_url"
+		case email = "email"
+		case subscribedNanodegreesCount = "subscribed_nanodegrees_count"
+		case graduatedNanodegreesCount = "graduated_nanodegrees_count"
+		case subscribedCoursesCount = "subscribed_courses_count"
+		case graduatedCoursesCount = "graduated_courses_count"
+		case registrationTime = "registration_time"
+		case nanodegrees = "nanodegrees"
+	}
+	
+}
+
+
+
+// MARK: - Fields: CustomStringConvertible
+extension UDUser.fields: CustomStringConvertible {
+	
+	public var description: String {
+		switch self {
+		case .id:
+			return UDUser.CodingKeys.id.stringValue
+		case .firstName:
+			return UDUser.CodingKeys.firstName.stringValue
+		case .lastName:
+			return UDUser.CodingKeys.lastName.stringValue
+		case .nickName:
+			return UDUser.CodingKeys.nickName.stringValue
+		case .imageUrl:
+			return UDUser.CodingKeys.imageUrl.stringValue
+		case .email:
+			return UDUser.CodingKeys.email.stringValue
+		case .subscribedNanodegreesCount:
+			return UDUser.CodingKeys.subscribedNanodegreesCount.stringValue
+		case .graduatedNanodegreesCount:
+			return UDUser.CodingKeys.graduatedNanodegreesCount.stringValue
+		case .subscribedCoursesCount:
+			return UDUser.CodingKeys.subscribedCoursesCount.stringValue
+		case .graduatedCoursesCount:
+			return UDUser.CodingKeys.graduatedCoursesCount.stringValue
+		case .registrationTime:
+			return UDUser.CodingKeys.registrationTime.stringValue
+		case .nanodegrees:
+			return UDUser.CodingKeys.nanodegrees.stringValue
+		}
+	}
 }
 
 
 // MARK: - Query
 public extension UDUser {
 	
-		class func generateQuery(fields: [UDUserField]) -> String {
-			guard fields.count > 0 else {
-				return ""
-			}
-	
-			var fieldsStrings: [String] = []
-	
-			fields.forEach { field in
-				if case UDUserField.nanodegrees(let ndFields) = field {
-					fieldsStrings.append(UDNanodegree.generateQuery(fields: ndFields))
-				} else {
-					fieldsStrings.append(field.description)
-				}
-			}
-	
-			let request = Request(name: "user", fields: fieldsStrings)
-			let query = "{\"query\":\"\(Query(request: request).create())\"}"
-			print(query)
-			return query
+	public static func generateQuery(fields: [UDUser.fields]) -> String {
+		guard fields.count > 0 else {
+			return ""
 		}
+		
+		var fieldsStrings: [String] = []
+		
+		fields.forEach { field in
+			if case .nanodegrees(let ndFields) = field {
+				fieldsStrings.append(UDNanodegree.generateQuery(fields: ndFields))
+			} else {
+				fieldsStrings.append(field.description)
+			}
+		}
+		
+		let request = Request(name: "user", fields: fieldsStrings)
+		let query = "{\"query\":\"\(Query(request: request).create())\"}"
+		return query
+	}
 	
 }
 
@@ -134,7 +209,7 @@ extension UDUser: Equatable {
 extension UDUser: CustomStringConvertible {
 	
 	public var description: String {
-		return firstName ?? "---"
+		return firstName ?? "--"
 	}
 	
 }
@@ -145,10 +220,11 @@ extension UDUser: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		var string = """
+		
 		Id: \(id ?? "--")
 		First name: \(firstName ?? "--")
 		Last name: \(lastName ?? "--")
-		Nickname: \(nickname ?? "--")
+		NickName: \(nickName ?? "--")
 		Email: \(email ?? "--")
 		Image URL: \(imageUrl?.absoluteString ?? "--")
 		Registration Time: \(registrationTime?.description ?? "--")
@@ -156,11 +232,16 @@ extension UDUser: CustomDebugStringConvertible {
 		Graduated nanodegrees count: \(graduatedNanodegreesCount?.description ?? "--")
 		Subscribed Courses count: \(subscribedCoursesCount?.description ?? "--")
 		Graduated Courses count: \(graduatedCoursesCount?.description ?? "--")
+		
 		"""
 		
 		for nanodegree in nanodegrees ?? [] {
-			string += "\n-------------------\n"
-			string += nanodegree.debugDescription
+			string += """
+			
+			------
+			\(nanodegree.debugDescription)
+			
+			"""
 		}
 		
 		return string

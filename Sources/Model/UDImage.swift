@@ -9,13 +9,7 @@
 import Foundation
 
 
-public class UDImage {
-	
-	public static let allFields: [UDImageField] = [
-		.url,
-		.width,
-		.height
-	]
+public struct UDImage: Codable {
 	
 	/// Url to the image
 	var url: URL?
@@ -28,30 +22,75 @@ public class UDImage {
 	
 	/// Create a UDImage object.
 	///
-	/// - Parameter json: json dictionary
-	public init(json: [String: Any]) {
-		if let urlString = json[UDImageField.url.description] as? String {
-			self.url = URL(string: urlString)
+	/// - Parameter json: JSON object
+	public init?(json: Data) {
+		let decoder = JSONDecoder()
+		guard let image = try? decoder.decode(UDImage.self, from: json) else {
+			return nil
 		}
-		self.width = json[UDImageField.width.description] as? Int
-		self.height = json[UDImageField.height.description] as? Int
+		
+		self = image
 	}
 }
+
+
+// MARK: - Fields
+public extension UDImage {
+	
+	public enum fields {
+		case url
+		case width
+		case height
+	}
+	
+	public static var allFields: [UDImage.fields] {
+		return [
+			.url,
+			.width,
+			.height
+		]
+	}
+	
+	fileprivate enum CodingKeys: String, CodingKey {
+		case url = "url"
+		case width = "width"
+		case height = "height"
+	}
+	
+}
+
+
+// MARK: - Fields: CustomStringConvertible
+extension UDImage.fields: CustomStringConvertible {
+	
+	public var description: String {
+		switch self {
+		case .url:
+			return UDImage.CodingKeys.url.stringValue
+		case .width:
+			return UDImage.CodingKeys.width.stringValue
+		case .height:
+			return UDImage.CodingKeys.height.stringValue
+		}
+	}
+}
+
+
 
 
 // MARK: - Query
 public extension UDImage {
 	
-		public class func generateQuery(fields: [UDImageField]) -> String {
-			guard fields.count > 0 else {
-				return ""
-			}
-			
-			let stringFields: [String] = fields.map { $0.description }
-			
-			let request = Request(name: UDNanodegreeField.heroImage(fields: []).description, fields: stringFields)
-			return request.asGraphQLString
+	public static func generateQuery(fields: [UDImage.fields]) -> String {
+		guard fields.count > 0 else {
+			return ""
 		}
+		
+		let fieldsStrings: [String] = fields.map { $0.description }
+		
+		let request = Request(name: UDNanodegree.fields.heroImage(fields: []).description, fields: fieldsStrings)
+		return request.asGraphQLString
+	}
 	
 }
 
@@ -70,7 +109,7 @@ extension UDImage: Equatable {
 extension UDImage: CustomStringConvertible {
 	
 	public var description: String {
-		return url?.absoluteString ?? "---"
+		return url?.absoluteString ?? "--"
 	}
 	
 }
@@ -81,9 +120,11 @@ extension UDImage: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		return """
+		
 		Url: \(url?.absoluteString ?? "--")
 		Width: \(width?.description ?? "--")
 		Height: \(height?.description ?? "--")
+		
 		"""
 	}
 	

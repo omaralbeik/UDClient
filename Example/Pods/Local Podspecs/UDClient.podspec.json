@@ -1,6 +1,6 @@
 {
   "name": "UDClient",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "summary": "Super easy to use Udacity Auth and Classroom APIs client for iOS",
   "license": {
     "type": "MIT",
@@ -12,12 +12,12 @@
   },
   "social_media_url": "https://twitter.com/omaralbeik",
   "platforms": {
-    "ios": "9.0"
+    "ios": "8.0"
   },
-  "requires_arc": "true",
+  "requires_arc": true,
   "source": {
     "git": "https://github.com/omaralbeik/UDClient.git",
-    "tag": "#{s.version}"
+    "tag": "0.3.0"
   },
   "source_files": "Sources/**/*.swift",
   "pod_target_xcconfig": {

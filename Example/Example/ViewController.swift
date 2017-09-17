@@ -9,6 +9,7 @@
 import UIKit
 import UDClient
 
+
 class ViewController: UIViewController {
 	
 	var token: UDAuthToken?
@@ -20,7 +21,6 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 	}
 	
 	@IBAction func didTapRequestTokenButton(_ sender: UIButton) {
