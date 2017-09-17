@@ -8,10 +8,10 @@
 import Foundation
 
 
-public class UDAuthToken {
+public struct UDAuthToken {
 	
 	/// Token string
-	public var token: String
+	public var string: String
 	
 	/// Token expiry date
 	public var expiryDate: Date? {
@@ -36,16 +36,18 @@ public class UDAuthToken {
 	/// Create a UDAuthToken object
 	///
 	/// - Parameter token: token string
-	public init(token: String) {
-		self.token = token
+	public init(string: String) {
+		self.string = string
 	}
 	
 }
 
+
+// MARK: - Helpers
 fileprivate extension UDAuthToken {
 	
 	var parts: [String] {
-		return token.components(separatedBy: ".")
+		return string.components(separatedBy: ".")
 	}
 	
 	func decodePart(_ part: String) -> [String: Any]? {
@@ -95,7 +97,7 @@ fileprivate extension UDAuthToken {
 extension UDAuthToken: Equatable {
 	
 	public static func ==(lhs: UDAuthToken, rhs: UDAuthToken) -> Bool {
-		return lhs.token == rhs.token
+		return lhs.string == rhs.string
 	}
 	
 }
@@ -105,7 +107,7 @@ extension UDAuthToken: Equatable {
 extension UDAuthToken: CustomStringConvertible {
 	
 	public var description: String {
-		return token
+		return string
 	}
 	
 }
@@ -116,9 +118,11 @@ extension UDAuthToken: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		return """
+		
 		Issue Date: \(issueDate?.description ?? "--")
 		Expiry Date: \(expiryDate?.description ?? "--")
-		Token: \(token)
+		Token: \(string)
+		
 		"""
 	}
 	

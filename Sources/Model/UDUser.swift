@@ -11,21 +11,6 @@ import Foundation
 
 public struct UDUser: Codable {
 	
-	public static let allKeys: [keys] = [
-		.id,
-		.firstName,
-		.lastName,
-		.nickName,
-		.imageUrl,
-		.email,
-		.subscribedNanodegreesCount,
-		.graduatedNanodegreesCount,
-		.subscribedCoursesCount,
-		.graduatedCoursesCount,
-		.registrationTime,
-		.nanodegrees(keys: UDNanodegree.allKeys)
-	]
-	
 	/// Id of the user
 	var id: String?
 	
@@ -85,7 +70,7 @@ public struct UDUser: Codable {
 		nickName = try? values.decode(String.self, forKey: .nickName)
 		imageUrl = try? values.decode(URL.self, forKey: .imageUrl)
 		email = try? values.decode(String.self, forKey: .email)
-		subscribedNanodegreesCount = try? values.decode(Int.self, forKey: .subscribedCoursesCount)
+		subscribedNanodegreesCount = try? values.decode(Int.self, forKey: .subscribedNanodegreesCount)
 		graduatedNanodegreesCount = try? values.decode(Int.self, forKey: .graduatedNanodegreesCount)
 		subscribedCoursesCount = try? values.decode(Int.self, forKey: .subscribedCoursesCount)
 		graduatedCoursesCount = try? values.decode(Int.self, forKey: .graduatedCoursesCount)
@@ -96,7 +81,40 @@ public struct UDUser: Codable {
 }
 
 
+// MARK: - Fields
 extension UDUser {
+	
+	public enum fields {
+		case id
+		case firstName
+		case lastName
+		case nickName
+		case imageUrl
+		case email
+		case subscribedNanodegreesCount
+		case graduatedNanodegreesCount
+		case subscribedCoursesCount
+		case graduatedCoursesCount
+		case registrationTime
+		case nanodegrees(fields: [UDNanodegree.fields])
+	}
+	
+	public static var allFields: [UDUser.fields] {
+		return [
+			.id,
+			.firstName,
+			.lastName,
+			.nickName,
+			.imageUrl,
+			.email,
+			.subscribedNanodegreesCount,
+			.graduatedNanodegreesCount,
+			.subscribedCoursesCount,
+			.graduatedCoursesCount,
+			.registrationTime,
+			.nanodegrees(fields: UDNanodegree.allFields)
+		]
+	}
 	
 	fileprivate enum CodingKeys: String, CodingKey {
 		case id = "id"
@@ -116,27 +134,9 @@ extension UDUser {
 }
 
 
-public extension UDUser {
-	
-	public enum keys {
-		case id
-		case firstName
-		case lastName
-		case nickName
-		case imageUrl
-		case email
-		case subscribedNanodegreesCount
-		case graduatedNanodegreesCount
-		case subscribedCoursesCount
-		case graduatedCoursesCount
-		case registrationTime
-		case nanodegrees(keys: [UDNanodegree.keys])
-	}
-	
-}
 
-
-extension UDUser.keys: CustomStringConvertible {
+// MARK: - Fields: CustomStringConvertible
+extension UDUser.fields: CustomStringConvertible {
 	
 	public var description: String {
 		switch self {
@@ -153,9 +153,9 @@ extension UDUser.keys: CustomStringConvertible {
 		case .email:
 			return UDUser.CodingKeys.email.stringValue
 		case .subscribedNanodegreesCount:
-			return UDUser.CodingKeys.subscribedCoursesCount.stringValue
+			return UDUser.CodingKeys.subscribedNanodegreesCount.stringValue
 		case .graduatedNanodegreesCount:
-			return UDUser.CodingKeys.graduatedCoursesCount.stringValue
+			return UDUser.CodingKeys.graduatedNanodegreesCount.stringValue
 		case .subscribedCoursesCount:
 			return UDUser.CodingKeys.subscribedCoursesCount.stringValue
 		case .graduatedCoursesCount:
@@ -172,22 +172,22 @@ extension UDUser.keys: CustomStringConvertible {
 // MARK: - Query
 public extension UDUser {
 	
-	public static func generateQuery(keys: [keys]) -> String {
-		guard keys.count > 0 else {
+	public static func generateQuery(fields: [UDUser.fields]) -> String {
+		guard fields.count > 0 else {
 			return ""
 		}
 		
-		var keysStrings: [String] = []
+		var fieldsStrings: [String] = []
 		
-		keys.forEach { key in
-			if case .nanodegrees(let ndKeys) = key {
-				keysStrings.append(UDNanodegree.generateQuery(keys: ndKeys))
+		fields.forEach { field in
+			if case .nanodegrees(let ndFields) = field {
+				fieldsStrings.append(UDNanodegree.generateQuery(fields: ndFields))
 			} else {
-				keysStrings.append(key.description)
+				fieldsStrings.append(field.description)
 			}
 		}
 		
-		let request = Request(name: "user", fields: keysStrings)
+		let request = Request(name: "user", fields: fieldsStrings)
 		let query = "{\"query\":\"\(Query(request: request).create())\"}"
 		return query
 	}
@@ -209,7 +209,7 @@ extension UDUser: Equatable {
 extension UDUser: CustomStringConvertible {
 	
 	public var description: String {
-		return firstName ?? "---"
+		return firstName ?? "--"
 	}
 	
 }
@@ -220,6 +220,7 @@ extension UDUser: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		var string = """
+		
 		Id: \(id ?? "--")
 		First name: \(firstName ?? "--")
 		Last name: \(lastName ?? "--")
@@ -231,11 +232,16 @@ extension UDUser: CustomDebugStringConvertible {
 		Graduated nanodegrees count: \(graduatedNanodegreesCount?.description ?? "--")
 		Subscribed Courses count: \(subscribedCoursesCount?.description ?? "--")
 		Graduated Courses count: \(graduatedCoursesCount?.description ?? "--")
+		
 		"""
 		
 		for nanodegree in nanodegrees ?? [] {
-			string += "\n-------------------\n"
-			string += nanodegree.debugDescription
+			string += """
+			
+			------
+			\(nanodegree.debugDescription)
+			
+			"""
 		}
 		
 		return string

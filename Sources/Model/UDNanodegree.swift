@@ -11,19 +11,6 @@ import Foundation
 
 public struct UDNanodegree: Codable {
 	
-	public static let allKeys: [keys] = [
-		.key,
-		.title,
-		.summary,
-		.isTermBased,
-		.providesCareerServices,
-		.dateUpdated,
-		.isGraduated,
-		.dateUpdated,
-		.isReadyForGraduation,
-		.heroImage(keys: UDImage.allKeys)
-	]
-	
 	/// Key of the Nanodegree
 	var key: String?
 	
@@ -86,7 +73,36 @@ public struct UDNanodegree: Codable {
 }
 
 
+// MARK: - Fields
 extension UDNanodegree {
+	
+	public enum fields {
+		case key
+		case title
+		case summary
+		case isTermBased
+		case providesCareerServices
+		case dateUpdated
+		case isGraduated
+		case dateGraduated
+		case isReadyForGraduation
+		case heroImage(fields: [UDImage.fields])
+	}
+	
+	public static var allFields: [UDNanodegree.fields] {
+		return [
+			.key,
+			.title,
+			.summary,
+			.isTermBased,
+			.providesCareerServices,
+			.dateUpdated,
+			.isGraduated,
+			.dateUpdated,
+			.isReadyForGraduation,
+			.heroImage(fields: UDImage.allFields)
+		]
+	}
 
 	fileprivate enum CodingKeys: String, CodingKey {
 		case key = "key"
@@ -104,24 +120,8 @@ extension UDNanodegree {
 }
 
 
-public extension UDNanodegree {
-	
-	public enum keys {
-		case key
-		case title
-		case summary
-		case isTermBased
-		case providesCareerServices
-		case dateUpdated
-		case isGraduated
-		case dateGraduated
-		case isReadyForGraduation
-		case heroImage(keys: [UDImage.keys])
-	}
-	
-}
-
-extension UDNanodegree.keys: CustomStringConvertible {
+// MARK: - Fields: CustomStringConvertible
+extension UDNanodegree.fields: CustomStringConvertible {
 	
 	public var description: String {
 		switch self {
@@ -153,22 +153,22 @@ extension UDNanodegree.keys: CustomStringConvertible {
 // MARK: - Query
 public extension UDNanodegree {
 	
-	public static func generateQuery(keys: [keys]) -> String {
-		guard keys.count > 0 else {
+	public static func generateQuery(fields: [UDNanodegree.fields]) -> String {
+		guard fields.count > 0 else {
 			return ""
 		}
 		
-		var keysStrings: [String] = []
+		var fieldsStrings: [String] = []
 		
-		keys.forEach { key in
-			if case .heroImage(let keys) = key {
-				keysStrings.append(UDImage.generateQuery(keys: keys))
+		fields.forEach { field in
+			if case .heroImage(let fields) = field {
+				fieldsStrings.append(UDImage.generateQuery(fields: fields))
 			} else {
-				keysStrings.append(key.description)
+				fieldsStrings.append(field.description)
 			}
 		}
 		
-		let request = Request(name: UDUser.keys.nanodegrees(keys: []).description, fields: keysStrings)
+		let request = Request(name: UDUser.fields.nanodegrees(fields: []).description, fields: fieldsStrings)
 		return request.asGraphQLString
 	}
 	
@@ -189,7 +189,7 @@ extension UDNanodegree: Equatable {
 extension UDNanodegree: CustomStringConvertible {
 	
 	public var description: String {
-		return title ?? "---"
+		return title ?? "--"
 	}
 	
 }
@@ -200,6 +200,7 @@ extension UDNanodegree: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		var string = """
+		
 		Key: \(key ?? "--")
 		Title: \(title ?? "--")
 		Summary: \(summary ?? "--")
@@ -209,6 +210,7 @@ extension UDNanodegree: CustomDebugStringConvertible {
 		Is graduated: \(isGraduated?.description ?? "--")
 		Date graduated: \(dateGraduated?.description ?? "--")
 		Is ready for graduation: \(isReadyForGraduation?.description ?? "--")
+		
 		"""
 		
 		if let image = self.heroImage {
@@ -218,11 +220,12 @@ extension UDNanodegree: CustomDebugStringConvertible {
 			"Url: \(image.url?.absoluteString ?? "--")
 			"Width: \(image.width?.description ?? "--")
 			"Height: \(image.height?.description ?? "--")
+			
 			"""
 		} else {
 			string += """
 			
-			Hero Image: ---
+			Hero Image: ----
 			
 			"""
 		}

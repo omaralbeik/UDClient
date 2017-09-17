@@ -8,51 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */; };
-		140549D8045D73F59A8114854385007F /* UDClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9222B2589A2261D60962E81F04D8024 /* UDClient-dummy.m */; };
-		171A54BA75A68315294BE9FC2E4C74BC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583291CD012657FC85D7AD3FF2B5928 /* Query.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A27EFBB0DA84D738057B77F3413B1 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26397DB7A1BD025AF426E8E29EA9563B /* ObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DE697DF115AE4B65072B35A01634F /* ObjectValue.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26112D98C4D572A8C74DD20CA5EE88C2 /* GraphQLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7CA2F996BA737694D4B65ED8FE5ED /* GraphQLConvertible.swift */; };
+		3514FECA8C7FD4DEEB37CF036B1FEF1B /* ObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DE697DF115AE4B65072B35A01634F /* ObjectValue.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
-		41C154326498BEA8C112B39DD9DDB778 /* UDAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065D19405DBC3D206A52209FB180E93C /* UDAuthToken.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4D83A40FAAE7613F11ED449A79974609 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCB073EB5F304907A10E3D702B6731 /* Request.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AA48F0D67277C691408D0B2C4F9C8D5 /* UDNanodegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAECB4F26E51C97F22C4D0AD5FDCC07 /* UDNanodegree.swift */; };
+		3BFFC9DC83967A51BBC5A7F536CBB46F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DACAC09D21D914BFE725C66B5D7CF36 /* String.swift */; };
+		45B5F65DDB242377060614E9D50E4151 /* UDAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065D19405DBC3D206A52209FB180E93C /* UDAuthToken.swift */; };
+		4C6365AAAB7448EFD1B4FA0F3B93F577 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583291CD012657FC85D7AD3FF2B5928 /* Query.swift */; };
+		5030EB14A8BBACC95A947F34497345BA /* UDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3115FC7D53146B86F0ABC53587CEC14 /* UDError.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; };
+		5F3A546565908F022B669198A4CA5873 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCB073EB5F304907A10E3D702B6731 /* Request.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
+		6239A4FB971EF3D710775495332D5D21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1103F7774EF60B57F4FD2E683F9E6E /* Extensions.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; };
 		686440B934C581431915E2A9732460E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */; };
+		6AA0BF13D037EC01833F421EF6FD8707 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F45E23838F47FE44F3B38548E0F5F /* Field.swift */; };
 		7161613542725C1B8E62831A7CF32941 /* UDClient-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB955D935E0EB96F5DB49293997F088 /* UDClient-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */; };
-		771A71B646157065262EFF859A4C4307 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DACAC09D21D914BFE725C66B5D7CF36 /* String.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		77FEF2DEA86E229CC8343849A05C3738 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F594E8755B98A72C25957684C7835B27 /* QueryType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B23EBF82F86ECE70B15D5D0E1D50317 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F45E23838F47FE44F3B38548E0F5F /* Field.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */; };
-		7DAEFBA1DCB42B64B38698BE09CAC7F2 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F80B1DF29ED3B3584CD98489B243BA /* Fragment.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8569F1BF7E4437010EA5519CBB520BFA /* UDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A67A8944FB755298709BAB2BC371BC /* UDImage.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7DDE37A7B1C8E2BC6989044ADF97A814 /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F594E8755B98A72C25957684C7835B27 /* QueryType.swift */; };
+		8ED2666C7CEDA9629C8437AA0711AD89 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F80B1DF29ED3B3584CD98489B243BA /* Fragment.swift */; };
 		95A6175588C81EA2333793D0C55E3F9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */; };
-		967F9BDB494FD6A393E148728D2E8A0F /* UDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3115FC7D53146B86F0ABC53587CEC14 /* UDError.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9CB5D77C90B96658C9DE4E061649EC59 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C1C119BCE81C53F76CAC2BE27C38E0 /* Alamofire-dummy.m */; };
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */; };
-		B715D0C1F17EC765694B11DE16EE88FD /* UDNanodegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAECB4F26E51C97F22C4D0AD5FDCC07 /* UDNanodegree.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B75F31C67EC5C5A013853E70B9358911 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */; };
+		BAFD20618BE0F6FA61060B4EC750C6BE /* UDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79CACAE19CEC409AF0C757FB55BA20 /* UDUser.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */; };
+		BC632B615DA0AB1B3BDE79089F62E395 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8125DD3265D0F431BCDE53AC20ED5A /* Argument.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */; };
-		C08180E22A5C897EA7FB071FE99C3B8D /* GraphQLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7CA2F996BA737694D4B65ED8FE5ED /* GraphQLConvertible.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C3588DF6EB6384DF2C2E866E84C98B2A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */; };
-		C695AD8C6C453805AA40570EF235E6ED /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703463E7146A73F3CC709FE5E06C7D16 /* Operation.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C92A5970F84620095B0CCFD25931C320 /* UDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79CACAE19CEC409AF0C757FB55BA20 /* UDUser.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CAB06BD5CF1F2773C4425A8E9E1FB325 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8125DD3265D0F431BCDE53AC20ED5A /* Argument.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C7997CCC03865A94BB6B973468824C5F /* UDClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9222B2589A2261D60962E81F04D8024 /* UDClient-dummy.m */; };
+		C8357D33ADA1802287A985C74D6BC4B4 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703463E7146A73F3CC709FE5E06C7D16 /* Operation.swift */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */; };
-		DC3198D9D4C7BDA570E5586F3A0ED078 /* UDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF385E8B9CE4FA756B68359FEFA1B10 /* UDClient.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DD3FB2449C4B21C9BB3FDA5E0EC66F0E /* ArgumentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50353CB8AF74DD93C73C446EE9B8D0F7 /* ArgumentValue.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E2B572B2B342300FA1C17E6EE1D7C7AD /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DF90C302614C6E060CBD3CF63E5DE /* Mutation.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E41E9B94AA7D7ED47FD614F26D7800CF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1103F7774EF60B57F4FD2E683F9E6E /* Extensions.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E4E873F707D56673FF81305563C3AD70 /* ArgumentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50353CB8AF74DD93C73C446EE9B8D0F7 /* ArgumentValue.swift */; };
+		EA84652E34D94AF547824038ADD2B505 /* UDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A67A8944FB755298709BAB2BC371BC /* UDImage.swift */; };
+		EBFF98B3F48A25ADEA571D18FB58E5A6 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DF90C302614C6E060CBD3CF63E5DE /* Mutation.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; };
+		FA99156347963566EEE65F740CABB476 /* UDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF385E8B9CE4FA756B68359FEFA1B10 /* UDClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -471,7 +471,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6798301326635F169A54D4DA819E61B4 /* Build configuration list for PBXNativeTarget "UDClient" */;
 			buildPhases = (
-				45D24C7C4D0C9CA9AAA7328FE13C8595 /* Sources */,
+				29A696D21187E241DDB44801B80E7563 /* Sources */,
 				D42C881657D8566C480358A68FFC72D7 /* Frameworks */,
 				6D44DB524251C6E1967F9ADC31C943D1 /* Headers */,
 			);
@@ -514,6 +514,33 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		29A696D21187E241DDB44801B80E7563 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC632B615DA0AB1B3BDE79089F62E395 /* Argument.swift in Sources */,
+				E4E873F707D56673FF81305563C3AD70 /* ArgumentValue.swift in Sources */,
+				6239A4FB971EF3D710775495332D5D21 /* Extensions.swift in Sources */,
+				6AA0BF13D037EC01833F421EF6FD8707 /* Field.swift in Sources */,
+				8ED2666C7CEDA9629C8437AA0711AD89 /* Fragment.swift in Sources */,
+				26112D98C4D572A8C74DD20CA5EE88C2 /* GraphQLConvertible.swift in Sources */,
+				EBFF98B3F48A25ADEA571D18FB58E5A6 /* Mutation.swift in Sources */,
+				3514FECA8C7FD4DEEB37CF036B1FEF1B /* ObjectValue.swift in Sources */,
+				C8357D33ADA1802287A985C74D6BC4B4 /* Operation.swift in Sources */,
+				4C6365AAAB7448EFD1B4FA0F3B93F577 /* Query.swift in Sources */,
+				7DDE37A7B1C8E2BC6989044ADF97A814 /* QueryType.swift in Sources */,
+				5F3A546565908F022B669198A4CA5873 /* Request.swift in Sources */,
+				3BFFC9DC83967A51BBC5A7F536CBB46F /* String.swift in Sources */,
+				45B5F65DDB242377060614E9D50E4151 /* UDAuthToken.swift in Sources */,
+				C7997CCC03865A94BB6B973468824C5F /* UDClient-dummy.m in Sources */,
+				FA99156347963566EEE65F740CABB476 /* UDClient.swift in Sources */,
+				5030EB14A8BBACC95A947F34497345BA /* UDError.swift in Sources */,
+				EA84652E34D94AF547824038ADD2B505 /* UDImage.swift in Sources */,
+				3AA48F0D67277C691408D0B2C4F9C8D5 /* UDNanodegree.swift in Sources */,
+				BAFD20618BE0F6FA61060B4EC750C6BE /* UDUser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2F7E7485D069FADB472920AD5BBBA70D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,33 +574,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45D24C7C4D0C9CA9AAA7328FE13C8595 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAB06BD5CF1F2773C4425A8E9E1FB325 /* Argument.swift in Sources */,
-				DD3FB2449C4B21C9BB3FDA5E0EC66F0E /* ArgumentValue.swift in Sources */,
-				E41E9B94AA7D7ED47FD614F26D7800CF /* Extensions.swift in Sources */,
-				7B23EBF82F86ECE70B15D5D0E1D50317 /* Field.swift in Sources */,
-				7DAEFBA1DCB42B64B38698BE09CAC7F2 /* Fragment.swift in Sources */,
-				C08180E22A5C897EA7FB071FE99C3B8D /* GraphQLConvertible.swift in Sources */,
-				E2B572B2B342300FA1C17E6EE1D7C7AD /* Mutation.swift in Sources */,
-				26397DB7A1BD025AF426E8E29EA9563B /* ObjectValue.swift in Sources */,
-				C695AD8C6C453805AA40570EF235E6ED /* Operation.swift in Sources */,
-				171A54BA75A68315294BE9FC2E4C74BC /* Query.swift in Sources */,
-				77FEF2DEA86E229CC8343849A05C3738 /* QueryType.swift in Sources */,
-				4D83A40FAAE7613F11ED449A79974609 /* Request.swift in Sources */,
-				771A71B646157065262EFF859A4C4307 /* String.swift in Sources */,
-				41C154326498BEA8C112B39DD9DDB778 /* UDAuthToken.swift in Sources */,
-				140549D8045D73F59A8114854385007F /* UDClient-dummy.m in Sources */,
-				DC3198D9D4C7BDA570E5586F3A0ED078 /* UDClient.swift in Sources */,
-				967F9BDB494FD6A393E148728D2E8A0F /* UDError.swift in Sources */,
-				8569F1BF7E4437010EA5519CBB520BFA /* UDImage.swift in Sources */,
-				B715D0C1F17EC765694B11DE16EE88FD /* UDNanodegree.swift in Sources */,
-				C92A5970F84620095B0CCFD25931C320 /* UDUser.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -598,49 +598,79 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1A41B15D3AA834993ADDD808FA9D8764 /* Release */ = {
+		18F36D9C0557601E9564019C348DA9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61C1BDC39F60BE7E9877C334C03A334 /* UDClient.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UDClient/UDClient-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UDClient/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UDClient/UDClient.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UDClient;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
+		};
+		2FA8F8F73CDADBD5F491FADD57E3ECBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 149054C495E8EC590CAB4C524133016F /* Pods-Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		441300C5FC4B5A08DA02C97A98A9AC30 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -677,189 +707,7 @@
 			};
 			name = Release;
 		};
-		59C055B3AEA2219D931A95A36783331A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D61C1BDC39F60BE7E9877C334C03A334 /* UDClient.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/UDClient/UDClient-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UDClient/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/UDClient/UDClient.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = UDClient;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5BCDFD5CDA7C6342C61F341F0A968E5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E512A5F985F876750237FD237C3AEEDA /* Pods-Example.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7836C60231C12BF94D9ECEBD14531F58 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 149054C495E8EC590CAB4C524133016F /* Pods-Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7F507DB4872C7F42046E7DEE5E8A848A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D61C1BDC39F60BE7E9877C334C03A334 /* UDClient.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/UDClient/UDClient-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UDClient/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/UDClient/UDClient.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = UDClient;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A516FB1A3CF0C0E38E6E12023BE62772 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6F34CCF86067ED508C12C676E298C69 /* Alamofire.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BC80BBB5C066539FFFC0B2127CA5D3C4 /* Debug */ = {
+		97803B46811A9BDB5E70FA1303AFBFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -899,7 +747,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -908,14 +756,166 @@
 			};
 			name = Debug;
 		};
+		A516FB1A3CF0C0E38E6E12023BE62772 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F34CCF86067ED508C12C676E298C69 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BDD0139D6EB93FA375F887ABD62DAB2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7D9991883A7CC06B994DA1076F22855 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E512A5F985F876750237FD237C3AEEDA /* Pods-Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E6961C08186EA40347AB5350A1816C28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61C1BDC39F60BE7E9877C334C03A334 /* UDClient.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UDClient/UDClient-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UDClient/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UDClient/UDClient.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UDClient;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BC80BBB5C066539FFFC0B2127CA5D3C4 /* Debug */,
-				1A41B15D3AA834993ADDD808FA9D8764 /* Release */,
+				97803B46811A9BDB5E70FA1303AFBFFE /* Debug */,
+				BDD0139D6EB93FA375F887ABD62DAB2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -932,8 +932,8 @@
 		6798301326635F169A54D4DA819E61B4 /* Build configuration list for PBXNativeTarget "UDClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59C055B3AEA2219D931A95A36783331A /* Debug */,
-				7F507DB4872C7F42046E7DEE5E8A848A /* Release */,
+				18F36D9C0557601E9564019C348DA9DC /* Debug */,
+				E6961C08186EA40347AB5350A1816C28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -941,8 +941,8 @@
 		69935148DA566D80D3C1FDC372728380 /* Build configuration list for PBXNativeTarget "Pods-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7836C60231C12BF94D9ECEBD14531F58 /* Debug */,
-				5BCDFD5CDA7C6342C61F341F0A968E5D /* Release */,
+				2FA8F8F73CDADBD5F491FADD57E3ECBD /* Debug */,
+				D7D9991883A7CC06B994DA1076F22855 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

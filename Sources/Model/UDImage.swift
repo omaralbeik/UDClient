@@ -11,12 +11,6 @@ import Foundation
 
 public struct UDImage: Codable {
 	
-	public static let allKeys: [keys] = [
-		.url,
-		.width,
-		.height
-	]
-	
 	/// Url to the image
 	var url: URL?
 	
@@ -40,7 +34,22 @@ public struct UDImage: Codable {
 }
 
 
-extension UDImage {
+// MARK: - Fields
+public extension UDImage {
+	
+	public enum fields {
+		case url
+		case width
+		case height
+	}
+	
+	public static var allFields: [UDImage.fields] {
+		return [
+			.url,
+			.width,
+			.height
+		]
+	}
 	
 	fileprivate enum CodingKeys: String, CodingKey {
 		case url = "url"
@@ -51,18 +60,8 @@ extension UDImage {
 }
 
 
-public extension UDImage {
-	
-	public enum keys {
-		case url
-		case width
-		case height
-	}
-	
-}
-
-
-extension UDImage.keys: CustomStringConvertible {
+// MARK: - Fields: CustomStringConvertible
+extension UDImage.fields: CustomStringConvertible {
 	
 	public var description: String {
 		switch self {
@@ -82,14 +81,14 @@ extension UDImage.keys: CustomStringConvertible {
 // MARK: - Query
 public extension UDImage {
 	
-	public static func generateQuery(keys: [keys]) -> String {
-		guard keys.count > 0 else {
+	public static func generateQuery(fields: [UDImage.fields]) -> String {
+		guard fields.count > 0 else {
 			return ""
 		}
 		
-		let stringKeys: [String] = keys.map { $0.description }
+		let fieldsStrings: [String] = fields.map { $0.description }
 		
-		let request = Request(name: UDNanodegree.keys.heroImage(keys: []).description, fields: stringKeys)
+		let request = Request(name: UDNanodegree.fields.heroImage(fields: []).description, fields: fieldsStrings)
 		return request.asGraphQLString
 	}
 	
@@ -110,7 +109,7 @@ extension UDImage: Equatable {
 extension UDImage: CustomStringConvertible {
 	
 	public var description: String {
-		return url?.absoluteString ?? "---"
+		return url?.absoluteString ?? "--"
 	}
 	
 }
@@ -121,9 +120,11 @@ extension UDImage: CustomDebugStringConvertible {
 	
 	public var debugDescription: String {
 		return """
+		
 		Url: \(url?.absoluteString ?? "--")
 		Width: \(width?.description ?? "--")
 		Height: \(height?.description ?? "--")
+		
 		"""
 	}
 	

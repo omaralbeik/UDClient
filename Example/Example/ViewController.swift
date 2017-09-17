@@ -9,6 +9,7 @@
 import UIKit
 import UDClient
 
+
 class ViewController: UIViewController {
 	
 	var token: UDAuthToken?
@@ -20,9 +21,6 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		emailTextField.text = "omaralbeik@gmail.com"
-		
 	}
 	
 	@IBAction func didTapRequestTokenButton(_ sender: UIButton) {
@@ -66,7 +64,7 @@ class ViewController: UIViewController {
 			return
 		}
 		
-		UDClient.shared.fetchUserInfo(token: authToken, keys: UDUser.allKeys) { user, error in
+		UDClient.shared.fetchUserInfo(token: authToken, fields: UDUser.allFields) { user, error in
 			if let err = error {
 				DispatchQueue.main.async {
 					self.resultTextView.textColor = .red
