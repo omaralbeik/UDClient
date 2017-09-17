@@ -12,34 +12,34 @@ import Foundation
 public struct UDNanodegree: Codable {
 	
 	/// Key of the Nanodegree
-	var key: String?
+	public var key: String?
 	
 	/// Title of the Nanodegree
-	var title: String?
+	public var title: String?
 	
 	/// Short summary of this Root Node
-	var summary: String?
+	public var summary: String?
 	
 	/// Whether or not this Nanodegree is using the term-based UI and payment system
-	var isTermBased: Bool?
+	public var isTermBased: Bool?
 	
 	/// Whether or not this Nanodegree provides career services
-	var providesCareerServices: Bool?
+	public var providesCareerServices: Bool?
 	
 	/// The last time the Nanodegree was updated
-	var dateUpdated: Date?
+	public var dateUpdated: Date?
 	
 	/// Whether or not the given user has graduated from the node
-	var isGraduated: Bool?
+	public var isGraduated: Bool?
 	
 	/// Date when the user graduated from the node
-	var dateGraduated: Date?
+	public var dateGraduated: Date?
 	
 	/// Whether or not the given user has finished the required projects of the nanodegree
-	var isReadyForGraduation: Bool?
+	public var isReadyForGraduation: Bool?
 	
 	/// Hero Image at the top of the Nanodegree Page, required 1200x900px
-	var heroImage: UDImage?
+	public var heroImage: UDImage?
 	
 	/// Create a UDNanodegree object.
 	///

@@ -10,7 +10,7 @@ Super easy to use Udacity Auth and Classroom APIs client for iOS
 
 ### ⚠️ To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v0.1.1`**](https://github.com/omaralbeik/UDClient/releases/tag/0.1.1).
 
-### ⚠️ To use with **Swift 4 / Xcode 9.x** please ensure you are using  [**`v0.3.0`**](https://github.com/omaralbeik/UDClient/releases/tag/0.3.0)
+### ⚠️ To use with **Swift 4 / Xcode 9.x** please ensure you are using  [**`v0.3.1`**](https://github.com/omaralbeik/UDClient/releases/tag/0.3.1)
 
 ---
 

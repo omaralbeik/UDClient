@@ -12,13 +12,13 @@ import Foundation
 public struct UDImage: Codable {
 	
 	/// Url to the image
-	var url: URL?
+	public var url: URL?
 	
 	/// Width of the image
-	var width: Int?
+	public var width: Int?
 	
 	/// Height of the image
-	var height: Int?
+	public var height: Int?
 	
 	/// Create a UDImage object.
 	///
