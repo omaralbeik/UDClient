@@ -78,6 +78,12 @@ public struct UDUser: Codable {
 		nanodegrees = try? values.decode([UDNanodegree].self, forKey: .nanodegrees)
 	}
 	
+	/// JSON object representing user
+	public var json: Data? {
+		let encoder = JSONEncoder()
+		encoder.dateEncodingStrategy = .formatted(DateFormatter.iso8061)
+		return try? encoder.encode(self)
+	}
 }
 
 
