@@ -12,40 +12,40 @@ import Foundation
 public struct UDUser: Codable {
 	
 	/// Id of the user
-	var id: String?
+	public var id: String?
 	
 	/// First Name
-	var firstName: String?
+	public var firstName: String?
 	
 	/// Last Name
-	var lastName: String?
+	public var lastName: String?
 	
 	/// Nickname
-	var nickName: String?
+	public var nickName: String?
 	
 	/// A url for the image of the user
-	var imageUrl: URL?
+	public var imageUrl: URL?
 	
 	/// Email address
-	var email: String?
+	public var email: String?
 	
 	/// Number of nanodegrees the user is enrolled in
-	var subscribedNanodegreesCount: Int?
+	public var subscribedNanodegreesCount: Int?
 	
 	/// Number of nanodegrees the user is graduated from
-	var graduatedNanodegreesCount: Int?
+	public var graduatedNanodegreesCount: Int?
 	
 	/// Subscribed courses count
-	var subscribedCoursesCount: Int?
+	public var subscribedCoursesCount: Int?
 	
 	/// Number of courses the user is graduated from
-	var graduatedCoursesCount: Int?
+	public var graduatedCoursesCount: Int?
 	
 	/// The earliest membership date of the user
-	var registrationTime: Date?
+	public var registrationTime: Date?
 	
 	/// User Nanodegrees
-	var nanodegrees: [UDNanodegree]?
+	public var nanodegrees: [UDNanodegree]?
 	
 	
 	/// Create a UDNanodegree object.

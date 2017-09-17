@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
-  - UDClient (0.3.0):
+  - UDClient (0.3.1):
     - Alamofire (~> 4.5)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  UDClient: f6db6cb44766cf1158cbedd4ecf22858edb5b20e
+  UDClient: 487678774b76a426aaa2cdc8c900ec2ff3f7d6f9
 
 PODFILE CHECKSUM: 5822a2aea45e3bb7ecfc4b93a0965f13ea54d971
 
